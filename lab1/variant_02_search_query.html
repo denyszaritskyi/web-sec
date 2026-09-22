@@ -54,7 +54,7 @@
       var params = new URLSearchParams(location.search);
       var q = params.get("q");
       if (q) {
-        document.getElementById("result").innerHTML =
+        document.getElementById("result").textContent =
           "Результати пошуку за запитом: «" + q + "»";
       }
     </script>

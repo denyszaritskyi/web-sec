@@ -1,32 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<title>Партнерська пропозиція</title>
-<style>
-  body{font-family:system-ui,sans-serif;background:#f4f6f8;color:#1f2937;margin:0;padding:40px 20px;}
-  .card{max-width:480px;margin:0 auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:28px 32px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
-  h1{font-size:1.2rem;margin:0 0 6px;}
-  p.lead{color:#64748b;margin:0 0 18px;font-size:.88rem;}
-  .msg{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;min-height:22px;}
-  .hint{margin-top:16px;font-size:.72rem;color:#94a3b8;}
-</style>
-</head>
-<body>
-  <div class="card">
-    <h1>Спеціальна пропозиція для партнерів</h1>
-    <p class="lead">Варіант 3</p>
-    <!--
+  <head>
+    <meta charset="UTF-8" />
+    <title>Партнерська пропозиція</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f4f6f8;
+        color: #1f2937;
+        margin: 0;
+        padding: 40px 20px;
+      }
+      .card {
+        max-width: 480px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 28px 32px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      }
+      h1 {
+        font-size: 1.2rem;
+        margin: 0 0 6px;
+      }
+      p.lead {
+        color: #64748b;
+        margin: 0 0 18px;
+        font-size: 0.88rem;
+      }
+      .msg {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 14px 16px;
+        min-height: 22px;
+      }
+      .hint {
+        margin-top: 16px;
+        font-size: 0.72rem;
+        color: #94a3b8;
+      }
+    </style>
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Спеціальна пропозиція для партнерів</h1>
+      <p class="lead">Варіант 3</p>
+      <!--
       Примітка для викладача: document.referrer майже завжди порожній
       при відкритті файлу напряму через file://. Для тестування запустіть
       локальний http-сервер (наприклад, python3 -m http.server) і перейдіть
       на цю сторінку за посиланням з іншої локальної сторінки.
     -->
-    <div id="banner"></div>
-    <p class="hint">Сторінка показує, звідки на неї прийшов відвідувач.</p>
-  </div>
-  <script>
-    document.write('<div class="msg">Ви перейшли з: ' + (document.referrer || '(джерело невідоме)') + '</div>');
-  </script>
-</body>
+      <div id="banner"></div>
+      <p class="hint">Сторінка показує, звідки на неї прийшов відвідувач.</p>
+    </div>
+    <script>
+      let safeReferrer = escapeHTML(document.referrer);
+      document.write(
+        '<div class="msg">Ви перейшли з: ' +
+          (safeReferrer || "(джерело невідоме)") +
+          "</div>",
+      );
+    </script>
+  </body>
 </html>
